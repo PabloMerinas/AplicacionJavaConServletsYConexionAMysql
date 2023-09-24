@@ -42,6 +42,8 @@ public class SvRegisterUser extends HttpServlet {
 			throws ServletException, IOException {
 		PrintWriter out = new PrintWriter(response.getOutputStream());
 		response.setCharacterEncoding("UTF-8");
+		response.setContentType("text/html");
+		response.setStatus(HttpServletResponse.SC_OK);
 
 		String name = request.getParameter("name");
 		String subname = request.getParameter("subname");

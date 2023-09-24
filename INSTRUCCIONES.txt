@@ -1,0 +1,1 @@
+Buenas, he creado un CRUD con una interfaz muy sencilla , conectado a una base de datos mia, asi no tienes que hacer nada.

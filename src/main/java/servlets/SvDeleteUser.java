@@ -31,7 +31,9 @@ public class SvDeleteUser extends HttpServlet {
 			throws ServletException, IOException {
 		PrintWriter out = new PrintWriter(response.getOutputStream());
 		response.setCharacterEncoding("UTF-8");
-
+		response.setContentType("text/html");
+		response.setStatus(HttpServletResponse.SC_OK);
+		
 		String dniSeleccionado = request.getParameter("usuario");
 
 		out.println("<!DOCTYPE html>");
