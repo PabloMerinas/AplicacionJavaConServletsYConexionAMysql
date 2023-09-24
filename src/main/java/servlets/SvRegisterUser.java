@@ -71,6 +71,7 @@ public class SvRegisterUser extends HttpServlet {
 	    out.println("</body>");
 	    out.println("</html>");
 		
+	    
 		out.close();
 
 	}

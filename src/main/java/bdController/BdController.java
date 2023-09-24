@@ -24,11 +24,11 @@ public class BdController {
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			connection = DriverManager.getConnection(url, username, password);
-			if (connection != null)
-				System.out.println("Conexión exitosa");
-			else {
-				System.out.println("Conexión fallida");
-			}
+//			if (connection != null)
+//				System.out.println("Conexión exitosa");
+//			else {
+//				System.out.println("Conexión fallida");
+//			}
 		} catch (SQLException | ClassNotFoundException e) {
 			e.printStackTrace();
 		}
@@ -178,7 +178,7 @@ public class BdController {
 		if (connection != null)
 			try {
 				connection.close();
-				System.out.println("Desconxion exitosa");
+//				System.out.println("Desconxion exitosa");
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}

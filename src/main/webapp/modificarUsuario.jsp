@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>Baja de usuario</title>
+<title>Modificación de usuario</title>
 </head>
 <body>
 
@@ -60,7 +60,7 @@
 				de clientes</div>
 		</a>
 		<div class="PabloMerinasSoto"
-			style="left: 763px; top: 744px; position: absolute; color: black; font-size: 48px; font-family: Inter; font-weight: 400; word-wrap: break-word">Pablo
+			style="width: 839px; height: 67px; left: 561px; top: 739px; position: absolute; background: white; color: black; font-size: 48px; font-family: Inter; font-weight: 400; word-wrap: break-word">Pablo
 			Merinas Soto</div>
 
 		<div class="list">
