@@ -45,7 +45,7 @@ public class SvRegisterUser extends HttpServlet {
 
 		String name = request.getParameter("name");
 		String subname = request.getParameter("subname");
-		String dni = request.getParameter("subname");
+		String dni = request.getParameter("dni");
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
 

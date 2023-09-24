@@ -40,11 +40,11 @@ public class BdController {
 
 		connect();
 		try {
-			String sql = "INSERT INTO users (dni, name, subName, username, password) VALUES (?, ?, ?, ?, ?)";
+			String sql = "INSERT INTO users (name, subName, dni, username, password) VALUES (?, ?, ?, ?, ?)";
 			preparedStatement = connection.prepareStatement(sql);
-			preparedStatement.setString(1, user.getDni());
-			preparedStatement.setString(2, user.getName());
-			preparedStatement.setString(3, user.getSubName());
+			preparedStatement.setString(1, user.getName());
+			preparedStatement.setString(2, user.getSubName());
+			preparedStatement.setString(3, user.getDni());
 			preparedStatement.setString(4, user.getUsername());
 			preparedStatement.setString(5, user.getPassword());
 
@@ -71,13 +71,13 @@ public class BdController {
 
 			while (resultSet.next()) {
 				// Obtener datos de cada fila del resultado y crear objetos User
-				String dni = resultSet.getString("dni");
 				String name = resultSet.getString("name");
 				String subName = resultSet.getString("subName");
+				String dni = resultSet.getString("dni");
 				String username = resultSet.getString("username");
 				String password = resultSet.getString("password");
 
-				User user = new User(dni, name, subName, username, password);
+				User user = new User(name, subName, dni, username, password);
 				userList.add(user);
 			}
 
@@ -90,6 +90,31 @@ public class BdController {
 
 		return userList;
 	}
+	
+	public static boolean deleteUser(String dni) {
+	    boolean isDeleted = false;
+
+	    connect();
+	    try {
+	        String sql = "DELETE FROM users WHERE dni = ?";
+	        PreparedStatement preparedStatement = connection.prepareStatement(sql);
+	        preparedStatement.setString(1, dni);
+
+	        int rowsDeleted = preparedStatement.executeUpdate();
+
+	        if (rowsDeleted > 0) {
+	            isDeleted = true;
+	        }
+
+	        preparedStatement.close();
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	    }
+	    disconnect();
+
+	    return isDeleted;
+	}
+
 
 	public static void disconnect() {
 		if (connection != null)
