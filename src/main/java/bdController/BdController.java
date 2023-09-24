@@ -90,31 +90,89 @@ public class BdController {
 
 		return userList;
 	}
-	
+
 	public static boolean deleteUser(String dni) {
-	    boolean isDeleted = false;
+		boolean isDeleted = false;
 
-	    connect();
-	    try {
-	        String sql = "DELETE FROM users WHERE dni = ?";
-	        PreparedStatement preparedStatement = connection.prepareStatement(sql);
-	        preparedStatement.setString(1, dni);
+		connect();
+		try {
+			String sql = "DELETE FROM users WHERE dni = ?";
+			PreparedStatement preparedStatement = connection.prepareStatement(sql);
+			preparedStatement.setString(1, dni);
 
-	        int rowsDeleted = preparedStatement.executeUpdate();
+			int rowsDeleted = preparedStatement.executeUpdate();
 
-	        if (rowsDeleted > 0) {
-	            isDeleted = true;
-	        }
+			if (rowsDeleted > 0) {
+				isDeleted = true;
+			}
 
-	        preparedStatement.close();
-	    } catch (SQLException e) {
-	        e.printStackTrace();
-	    }
-	    disconnect();
+			preparedStatement.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		disconnect();
 
-	    return isDeleted;
+		return isDeleted;
 	}
 
+	public static boolean modifyUser(String dniPreUser, User newUser) {
+		boolean isModified = false;
+
+		connect();
+		try {
+			String sql = "UPDATE users SET name = ?, subName = ?,dni = ?, username = ?, password = ? WHERE dni = ?";
+			PreparedStatement preparedStatement = connection.prepareStatement(sql);
+			preparedStatement.setString(1, newUser.getName());
+			preparedStatement.setString(2, newUser.getSubName());
+			preparedStatement.setString(3, newUser.getDni());
+			preparedStatement.setString(4, newUser.getUsername());
+			preparedStatement.setString(5, newUser.getPassword());
+			preparedStatement.setString(6, dniPreUser);
+
+			int rowsUpdated = preparedStatement.executeUpdate();
+
+			if (rowsUpdated > 0) {
+				isModified = true;
+			}
+
+			preparedStatement.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		disconnect();
+
+		return isModified;
+	}
+
+	public static User getUser(String dni) {
+		User user = null;
+
+		connect();
+		try {
+			String sql = "SELECT * FROM users WHERE dni = ?";
+			PreparedStatement preparedStatement = connection.prepareStatement(sql);
+			preparedStatement.setString(1, dni);
+
+			ResultSet resultSet = preparedStatement.executeQuery();
+
+			if (resultSet.next()) {
+				user = new User();
+				user.setDni(resultSet.getString("dni"));
+				user.setName(resultSet.getString("name"));
+				user.setSubName(resultSet.getString("subName"));
+				user.setUsername(resultSet.getString("username"));
+				user.setPassword(resultSet.getString("password"));
+			}
+
+			resultSet.close();
+			preparedStatement.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		disconnect();
+
+		return user;
+	}
 
 	public static void disconnect() {
 		if (connection != null)

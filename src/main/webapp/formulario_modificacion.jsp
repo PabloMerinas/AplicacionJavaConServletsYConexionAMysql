@@ -64,31 +64,20 @@
 			Merinas Soto</div>
 
 		<div class="list">
-			<%
-			List<User> userList = BdController.getUserList();
-			if (userList.isEmpty()) {
-			%>
-			<p>No hay usuarios disponibles.</p>
-			<%
-			} else {
-			%>
-			<form action="SvUpdateUser" method="get">
-				<label for="usuario">Selecciona un usuario:</label> <select
-					name="usuario" id="usuario" class="form-select">
-					<%
-					for (User user : userList) {
-					%>
-					<option value="<%=user.getDni()%>"><%=user.getName()%>
-						<%=user.getSubName()%></option>
-					<%
-					}
-					%>
-				</select>
-				<button type="submit">Seleccionar usuario</button>
+			<form action="SvConfirmUpdate" method="post">
+				<input type="hidden" name="editar" value="true"> <label
+					for="name">Nombre:</label> <input type="text" name="name"
+					value="${usuarioAModificar.name}"> <br> <label
+					for="subName">Apellido:</label> <input type="text" name="subName"
+					value="${usuarioAModificar.subName}"> <br> <label
+					for="dni">DNI:</label> <input type="text" name="dni"
+					value="${usuarioAModificar.dni}" readonly> <br> <label
+					for="username">Nombre de usuario:</label> <input type="text"
+					name="username" value="${usuarioAModificar.username}"> <br>
+				<label for="password">Contraseña:</label> <input type="password"
+					name="password" value="${usuarioAModificar.password}"> <br>
+				<input type="submit" value="Guardar Cambios">
 			</form>
-			<%
-			}
-			%>
 		</div>
 	</div>
 </body>

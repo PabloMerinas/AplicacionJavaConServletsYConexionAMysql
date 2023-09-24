@@ -39,4 +39,34 @@
     <servlet-name>SvDeleteUser</servlet-name>
     <url-pattern>/SvDeleteUser</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>SvUpdateUser</display-name>
+    <servlet-name>SvUpdateUser</servlet-name>
+    <servlet-class>servlets.SvUpdateUser</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SvUpdateUser</servlet-name>
+    <url-pattern>/SvUpdateUser</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>SvConfirmModification</display-name>
+    <servlet-name>SvConfirmModification</servlet-name>
+    <servlet-class>servlets.SvConfirmModification</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SvConfirmModification</servlet-name>
+    <url-pattern>/SvConfirmModification</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>SvConfirmUpdate</display-name>
+    <servlet-name>SvConfirmUpdate</servlet-name>
+    <servlet-class>servlets.SvConfirmUpdate</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SvConfirmUpdate</servlet-name>
+    <url-pattern>/SvConfirmUpdate</url-pattern>
+  </servlet-mapping>
 </web-app>

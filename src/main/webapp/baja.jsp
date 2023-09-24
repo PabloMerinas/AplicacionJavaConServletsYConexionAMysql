@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>Baja de usuario</title>
+<title>Modificar de usuario</title>
 </head>
 <body>
 

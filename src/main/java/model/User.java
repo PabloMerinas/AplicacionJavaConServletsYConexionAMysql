@@ -23,6 +23,10 @@ public class User {
 		this.password = password;
 	}
 
+	public User() {
+		// TODO Auto-generated constructor stub
+	}
+
 	/**
 	 * @return the name
 	 */
