@@ -32,7 +32,9 @@ public class SvShowUsers extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		List<User> userList = new ArrayList<>();
+
 		BdController.connect();
+		BdController.disconnect();
 
 		userList.add(new User("p", "d", "d", "d", "d"));
 		userList.add(new User("p", "h", "e", "s", "d"));

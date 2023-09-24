@@ -19,4 +19,14 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
+  <servlet>
+    <description></description>
+    <display-name>SvRegisterUser</display-name>
+    <servlet-name>SvRegisterUser</servlet-name>
+    <servlet-class>servlets.SvRegisterUser</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SvRegisterUser</servlet-name>
+    <url-pattern>/SvRegisterUser</url-pattern>
+  </servlet-mapping>
 </web-app>
